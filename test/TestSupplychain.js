@@ -59,8 +59,11 @@ contract('SupplyChain', function(accounts) {
             eventEmitted = true
         })
 
+        supplyChain.addFarmer(originFarmerID)
         // Mark an item as Harvested by calling function harvestItem()
-        await supplyChain.harvestItem(upc, originFarmerID, originFarmName, originFarmInformation, originFarmLatitude, originFarmLongitude, productNotes)
+        await supplyChain.harvestItem(upc, 
+            originFarmerID, originFarmName, originFarmInformation, originFarmLatitude, 
+            originFarmLongitude, productNotes, {from: originFarmerID})
 
         // Retrieve the just now saved item from blockchain by calling function fetchItem()
         const resultBufferOne = await supplyChain.fetchItemBufferOne.call(upc)
@@ -161,6 +164,7 @@ contract('SupplyChain', function(accounts) {
             eventEmitted = true
         })
         
+        supplyChain.addDistributor(distributorID)
         // Mark an item as Sold by calling function buyItem()
         await supplyChain.buyItem(upc, {from: distributorID, value: productPrice})
         
@@ -212,6 +216,7 @@ contract('SupplyChain', function(accounts) {
             eventEmitted = true
         })
 
+        supplyChain.addRetailer(retailerID)
         // Mark an item as Received by calling function receiveItem()
         await supplyChain.receiveItem(upc, {from: retailerID})
         
@@ -238,6 +243,7 @@ contract('SupplyChain', function(accounts) {
             eventEmitted = true
         })
 
+        supplyChain.addConsumer(consumerID)
         // Mark an item as Purchased by calling function purchaseItem()
         await supplyChain.purchaseItem(upc, {from: consumerID})
 
@@ -288,6 +294,5 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferTwo[7], retailerID, 'Error: Wrong retailerID');
         assert.equal(resultBufferTwo[8], consumerID, 'Error: Wrong consumerID');
     })
-
 });
 

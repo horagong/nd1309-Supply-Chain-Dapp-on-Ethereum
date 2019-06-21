@@ -48,13 +48,11 @@ This will create the smart contract artifacts in folder ```build\contracts```.
 truffle migrate
 ```
 
-Your terminal should look something like this:
-
 ```
 Starting migrations...
 ======================
 > Network name:    'development'
-> Network id:      1561010761397
+> Network id:      1561085568927
 > Block gas limit: 6721975
 
 
@@ -63,11 +61,11 @@ Starting migrations...
 
    Replacing 'Migrations'
    ----------------------
-   > transaction hash:    0x4f25512d0a525c2cd2be59b235a750b609d88d71ddca3a0ec6e5909fa98857fd
+   > transaction hash:    0xb89fcb80fa388feab812069389ef94c482c1e4a24729f18829342f268cdc23c6
    > Blocks: 0            Seconds: 0
-   > contract address:    0xe16CA31192c3bf8AF60097F3a3e9879c3009BCd4
+   > contract address:    0xE6b2aE9208c92D2CcBF7383A7baaD12e89C49c6C
    > account:             0xB68180D8502B21A21fE7f4cB241846D26ED92c1c
-   > balance:             99.91155946
+   > balance:             95.89757168
    > gas used:            284908
    > gas price:           20 gwei
    > value sent:          0 ETH
@@ -83,81 +81,29 @@ Starting migrations...
 2_deploy_contracts.js
 =====================
 
-   Replacing 'FarmerRole'
-   ----------------------
-   > transaction hash:    0x6ea2f57a6cc91f92e2e3b0e0e99407d9688cc9311a85c8880485688d577a387e
-   > Blocks: 0            Seconds: 0
-   > contract address:    0xCADf270561d9093a61c865B8704a57E5Bc60Ad67
-   > account:             0xB68180D8502B21A21fE7f4cB241846D26ED92c1c
-   > balance:             99.90281672
-   > gas used:            395103
-   > gas price:           20 gwei
-   > value sent:          0 ETH
-   > total cost:          0.00790206 ETH
-
-
-   Replacing 'DistributorRole'
-   ---------------------------
-   > transaction hash:    0xf051e260d7d4a69f75f42970d5172b1b9e60a21d05e2604e9a55a6f03ebee9f0
-   > Blocks: 0            Seconds: 0
-   > contract address:    0x034b5dB26DC49440bA955a83dFCe07e88910e424
-   > account:             0xB68180D8502B21A21fE7f4cB241846D26ED92c1c
-   > balance:             99.89491466
-   > gas used:            395103
-   > gas price:           20 gwei
-   > value sent:          0 ETH
-   > total cost:          0.00790206 ETH
-
-
-   Replacing 'RetailerRole'
-   ------------------------
-   > transaction hash:    0x03f039522ba744a0cc50b659005dea0950dc7ca8e3fa15425cb4235bf0ce6c83
-   > Blocks: 0            Seconds: 0
-   > contract address:    0x8933360D44887c9D83C5Ec954727E303215c6496
-   > account:             0xB68180D8502B21A21fE7f4cB241846D26ED92c1c
-   > balance:             99.88700876
-   > gas used:            395295
-   > gas price:           20 gwei
-   > value sent:          0 ETH
-   > total cost:          0.0079059 ETH
-
-
-   Replacing 'ConsumerRole'
-   ------------------------
-   > transaction hash:    0x8117e630b274817b57d448afb3038ffeb6358bd3ff3c55c20189abc4a5f43cbe
-   > Blocks: 0            Seconds: 0
-   > contract address:    0x863AE989FB8F17114dC2443970E0034e0DdB4Fd1
-   > account:             0xB68180D8502B21A21fE7f4cB241846D26ED92c1c
-   > balance:             99.8791067
-   > gas used:            395103
-   > gas price:           20 gwei
-   > value sent:          0 ETH
-   > total cost:          0.00790206 ETH
-
-
    Replacing 'SupplyChain'
    -----------------------
-   > transaction hash:    0x4b459a2a6a36a7675e7bcd8002bb170b97099aed074cb7f82307a76c31d4b067
+   > transaction hash:    0xe0411bbf3d076cb7f096da9ef245377a891a2e63789d60a07177e01c76a3673d
    > Blocks: 0            Seconds: 0
-   > contract address:    0x05b92D3D5b1f964BB7d2131E141a0e3dBf89dFA0
+   > contract address:    0xB3D1fded59Fa85C46FD10E72420EE29e97374750
    > account:             0xB68180D8502B21A21fE7f4cB241846D26ED92c1c
-   > balance:             99.83505592
-   > gas used:            2202539
+   > balance:             95.83123728
+   > gas used:            3274686
    > gas price:           20 gwei
    > value sent:          0 ETH
-   > total cost:          0.04405078 ETH
+   > total cost:          0.06549372 ETH
 
 
    > Saving migration to chain.
    > Saving artifacts
    -------------------------------------
-   > Total cost:          0.07566286 ETH
+   > Total cost:          0.06549372 ETH
 
 
 Summary
 =======
-> Total deployments:   6
-> Final cost:          0.08136102 ETH
+> Total deployments:   2
+> Final cost:          0.07119188 ETH
 ```
 
 #### Test smart contracts:
@@ -165,7 +111,7 @@ Summary
 ```
 truffle test
 ```
-All 10 tests should pass like this.
+All 10 tests passed like this.
 
 ```
 Using network 'development'.
@@ -179,20 +125,19 @@ Consumer: accounts[4]  0x7Cb5DD32C64e919cA89a0BFAde57043dbD4CBe9f
 
 
   Contract: SupplyChain
-    ✓ Testing smart contract function harvestItem() that allows a farmer to harvest coffee (183ms)
-    ✓ Testing smart contract function processItem() that allows a farmer to process coffee (83ms)
-    ✓ Testing smart contract function packItem() that allows a farmer to pack coffee (78ms)
-    ✓ Testing smart contract function sellItem() that allows a farmer to sell coffee (83ms)
-    ✓ Testing smart contract function buyItem() that allows a distributor to buy coffee (115ms)
-    ✓ Testing smart contract function shipItem() that allows a distributor to ship coffee (67ms)
-    ✓ Testing smart contract function receiveItem() that allows a retailer to mark coffee received (100ms)
-    ✓ Testing smart contract function purchaseItem() that allows a consumer to purchase coffee (103ms)
+    ✓ Testing smart contract function harvestItem() that allows a farmer to harvest coffee (133ms)
+    ✓ Testing smart contract function processItem() that allows a farmer to process coffee (63ms)
+    ✓ Testing smart contract function packItem() that allows a farmer to pack coffee (99ms)
+    ✓ Testing smart contract function sellItem() that allows a farmer to sell coffee (73ms)
+    ✓ Testing smart contract function buyItem() that allows a distributor to buy coffee (122ms)
+    ✓ Testing smart contract function shipItem() that allows a distributor to ship coffee (64ms)
+    ✓ Testing smart contract function receiveItem() that allows a retailer to mark coffee received (114ms)
+    ✓ Testing smart contract function purchaseItem() that allows a consumer to purchase coffee (115ms)
     ✓ Testing smart contract function fetchItemBufferOne() that allows anyone to fetch item details from blockchain
     ✓ Testing smart contract function fetchItemBufferTwo() that allows anyone to fetch item details from blockchain
 
 
-  10 passing (934ms)
-
+  10 passing (904ms)
 ```
 
 ### rinkeby network
